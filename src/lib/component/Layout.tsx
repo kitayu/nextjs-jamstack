@@ -1,5 +1,5 @@
-import { FunctionComponent, ReactNode } from "react";
-import styles from './index.module.css';
+import { FunctionComponent, ReactNode } from 'react';
+import styles from './layout.module.css';
 
 export const Layout: FunctionComponent<{
 	children: ReactNode;

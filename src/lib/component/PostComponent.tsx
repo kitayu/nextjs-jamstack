@@ -1,12 +1,19 @@
-import dayjs from "dayjs";
-import Link from "next/link";
-import { FunctionComponent } from "react";
-import { Post } from "@/pages";
-import styles from "./index.module.css";
+'use client';
+
+import { useEffect, FunctionComponent } from 'react'
+import prism from 'prismjs'
+import dayjs from 'dayjs';
+import Link from 'next/link';
+import 'prism-themes/themes/prism-nord.min.css';
+import { Post } from '@/lib/type';
+import styles from './postComponent.module.css';
 
 export const PostComponent: FunctionComponent<{
   post: Post;
 }> = ({ post }) => {
+  useEffect(() => {
+    prism.highlightAll();
+  }, []);
   return (
     <div className={styles.post} key={post.id}>
       <h1 className={styles.title}>
@@ -63,7 +70,7 @@ export const PostComponent: FunctionComponent<{
                   key={key}
                   className={`${styles.code} lang-${content.language}`}
                 >
-										<code>{content.text}</code>
+                  <code>{content.text}</code>
                 </pre>
               );
             case "quote":
